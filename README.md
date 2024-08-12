@@ -27,12 +27,12 @@
 
 ### 📖 Description :
 
-This website helps users who want to create `very strong` passwords for accounts on the internet such as Facebook, Google, TikTok and others. This website will create a password from the text you enter (see image above).
+This website helps users who want to create `very strong` passwords of length 14 for accounts on the internet such as Facebook, Google, TikTok and others. This website will create a password from the text you enter (see image above).
 
 ### 🪂 Features :
 
 - supports everything for account passwords including those requiring symbols, numbers
-- ripemd128 hashing algorithm for create result password then slice from 0 ~ 16. formula: `@X + ripemd128(..).slice(0, 16)`
+- ripemd128 hashing algorithm for help create result password. formula: `@X + ripemd128(..).slice(0, 12)`
 - reinforcement Before iterations: will perform hashing with the formula listed before iteration.
 - support iterations, Iteration refers to applying the hash function double based on the provided number. For instance, if the number given is 2, the process would be as follows: `hash(hash("your text"))` In other words, your words are hashed once, then the output is hashed again. So a higher count leads to greater computation worked into hashing the data.
 
