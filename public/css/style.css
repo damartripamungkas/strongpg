@@ -1,0 +1,126 @@
+body {
+  font-family: monospace;
+  background-color: #f2f2f2;
+  font-size: large;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 576px) {
+  a {
+    font-size: large;
+  }
+
+  p {
+    font-size: large;
+  }
+}
+
+p {
+  color: #252525;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+a {
+  margin: 0;
+  color: black;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+textarea {
+  border-radius: 0.25rem;
+  border: 2px solid #ccc;
+  font-size: large;
+}
+
+input {
+  color: #252525;
+  font-size: medium;
+  border: 2px solid #ccc;
+  border-radius: 0.25rem;
+  min-height: 1.25rem;
+}
+
+button {
+  border-radius: 0.25rem;
+  border: 2px solid #ccc;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  cursor: pointer;
+}
+
+select {
+  border-radius: 0.25rem;
+  border: 2px solid #ccc;
+  font-size: medium;
+  width: 200px;
+}
+
+.w-full {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.btn-text-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-text-area button {
+  border-radius: 0.3rem 0 0 0.3rem;
+  border: 1px solid #ccc;
+  flex: 1;
+}
+
+.btn-text-area input {
+  border-radius: 0 0.3rem 0.3rem 0;
+  flex: 2;
+  text-align: center;
+  border: 1px solid #ccc;
+  height: 2rem;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-y: hidden;
+  /* padding-top: 12px; */
+}
+
+.container {
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.card {
+  border: 0.1px solid #ccc;
+  padding: 30px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 1px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-1 {
+  padding-top: 0.4rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.4rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.4rem;
+}
+
+.click-able {
+  cursor: pointer;
+}

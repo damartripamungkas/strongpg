@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="damartripamungkas" />
+    <meta name="description" content="Anti-hack password generator for account creation on the internet" />
+    <title>Strongpg | password generator</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./public/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1 class="mt-0">STRONGPG</h1>
+        <div class="pt-1">
+          version:
+          <a id="value-version" href="./public/project.js">V0.0.0</a>
+        </div>
+        <div class="pt-1">
+          creator:
+          <a href="https://github.com/damartripamungkas">damartripamungkas</a>
+        </div>
+        <div class="pt-1">
+          donation:
+          <a href="https://t.me/damartripamungkas">click here</a>
+        </div>
+        <div class="pt-1">
+          repository:
+          <a href="https://github.com/damartripamungkas/strongpg">https://github.com/damartripamungkas/strongpg</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="mt-0 mb-1">Reinforcement Before iterations</p>
+        <select id="select-reinforcement" aria-label="select-1">
+          <option value="1" selected>1. sha256(sha256(text))</option>
+        </select>
+
+        <p class="pt-10 mb-1">Number of iterations</p>
+        <input id="input-iterations" type="number" value="1" min="1" max="100" style="min-width: 12rem" />
+
+        <p class="pt-10 mb-1">Enter the text you want and turn it into a strong password</p>
+        <textarea id="input-text" type="text" class="w-full"></textarea>
+
+        <p class="pt-10 mb-1">Result strong password</p>
+        <input id="input-password" type="text" class="w-full click-able" disabled />
+        <button id="copy-input-password" class="mt-1">Copy</button>
+      </div>
+    </div>
+
+    <script src="./public/project.js"></script>
+    <script src="./public/js/crypto-api.min.js"></script>
+    <script lang="text/javascript">
+      document.getElementById("value-version").textContent = `V${project.version}`
+
+      const sha256 = (v) => CryptoApi.hash("sha256", v)
+      const ripemd128 = (v) => CryptoApi.hash("ripemd128", v)
+      const genStrongPass = (str, iterations, reinforcement) => {
+        let pk = ""
+        if (reinforcement == 1) {
+          // 1. sha256(sha256(text))
+          pk = sha256(sha256(str))
+        }
+
+        // Hash interation results other than 1
+        pk = ripemd128(pk)
+        for (let index = 1; index < iterations; index++) {
+          pk = ripemd128(pk);
+        }
+
+        const comptaible = `@X${pk.slice(0, 16)}`
+        return comptaible
+      }
+
+      const inputText = document.getElementById("input-text")
+      const inputPassword = document.getElementById("input-password")
+      const inputIterations = document.getElementById("input-iterations")
+      const selectReinforcement = document.getElementById("select-reinforcement")
+      const buttonCopyInputPassword = document.getElementById("copy-input-password")
+      const runGenStrongPass = () => {
+        if (inputText.value.length == 0) {
+          inputPassword.value = ""
+          return
+        }
+        if (inputText.value.includes(" ")) {
+          inputText.value = inputText.value.replaceAll(" ", "")
+        }
+
+        inputPassword.value = genStrongPass(inputText.value, inputIterations.value, selectReinforcement.value)
+      }
+
+      inputText.oninput = runGenStrongPass
+      inputIterations.oninput = runGenStrongPass
+      selectReinforcement.onchange = runGenStrongPass
+      buttonCopyInputPassword.onclick = () => {
+        inputPassword.select();
+        inputPassword.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(inputPassword.value);
+      }
+    </script>
+  </body>
+</html>
