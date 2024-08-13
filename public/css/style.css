@@ -1,17 +1,25 @@
+@font-face {
+  font-family: "SpaceMonoRegular";
+  src: url(../font/SpaceMono-Regular.ttf) format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 body {
-  font-family: monospace;
+  font-family: "SpaceMonoRegular";
+  font-size: 0.95rem;
+  font-weight: 500;
   background-color: #f2f2f2;
-  font-size: large;
-  font-weight: 100;
 }
 
 @media screen and (max-width: 576px) {
   a {
-    font-size: large;
+    /* font-size: small; */
   }
 
   p {
-    font-size: large;
+    /* font-size: x-small; */
   }
 }
 
@@ -22,69 +30,55 @@ p {
 }
 
 a {
+  color: #252525;
   margin: 0;
-  color: black;
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 textarea {
-  border-radius: 0.25rem;
-  border: 2px solid #ccc;
-  font-size: large;
+  color: #252525;
+  outline-style: dashed;
+  outline-width: 1px;
+  padding: 0.25rem;
+  font-size: 1.25rem;
 }
 
 input {
   color: #252525;
   font-size: medium;
-  border: 2px solid #ccc;
-  border-radius: 0.25rem;
   min-height: 1.25rem;
+  outline-style: dashed;
+  outline-width: 1px;
+  padding: 0.25rem;
 }
 
 button {
-  border-radius: 0.25rem;
-  border: 2px solid #ccc;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
   cursor: pointer;
+  outline-style: solid;
+  outline-width: 1px;
+  background-color: 240 5.9% 10%;
 }
 
 select {
-  border-radius: 0.25rem;
-  border: 2px solid #ccc;
   font-size: medium;
   width: 200px;
+  outline-style: dashed;
+  outline-width: 1px;
+  padding: 0.25rem;
+}
+
+select option {
+  font-size: medium;
 }
 
 .w-full {
   min-width: 100%;
   max-width: 100%;
-}
-
-.btn-text-area {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.btn-text-area button {
-  border-radius: 0.3rem 0 0 0.3rem;
-  border: 1px solid #ccc;
-  flex: 1;
-}
-
-.btn-text-area input {
-  border-radius: 0 0.3rem 0.3rem 0;
-  flex: 2;
-  text-align: center;
-  border: 1px solid #ccc;
-  height: 2rem;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-y: hidden;
-  /* padding-top: 12px; */
 }
 
 .container {
@@ -93,12 +87,19 @@ select {
 }
 
 .card {
-  border: 0.1px solid #ccc;
+  outline-style: solid;
+  outline-width: 1px;
   padding: 30px;
   margin-bottom: 15px;
-  box-shadow: 0 3px 1px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   background-color: #fff;
-  border-radius: 0.5rem;
+}
+
+.card-2 {
+  outline-style: solid;
+  outline-width: 1px;
+  padding: 30px;
+  margin-bottom: 15px;
+  background-color: #fff;
 }
 
 .pt-10 {
@@ -109,6 +110,10 @@ select {
   padding-top: 0.4rem;
 }
 
+.pt-0-5 {
+  padding-top: 0.2rem;
+}
+
 .mt-0 {
   margin-top: 0;
 }
@@ -117,8 +122,16 @@ select {
   margin-top: 0.4rem;
 }
 
+.mt-2 {
+  margin-top: 0.6rem;
+}
+
 .mb-1 {
   margin-bottom: 0.4rem;
+}
+
+.mb-0-5 {
+  margin-bottom: 0.2rem;
 }
 
 .click-able {
