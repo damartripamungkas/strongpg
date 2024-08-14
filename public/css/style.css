@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "SpaceMonoRegular";
   src: url(../font/SpaceMono-Regular.ttf) format("truetype");
@@ -14,12 +18,8 @@ body {
 }
 
 @media screen and (max-width: 576px) {
-  a {
-    /* font-size: small; */
-  }
-
-  p {
-    /* font-size: x-small; */
+  .card {
+    padding: 20px !important;
   }
 }
 
@@ -82,19 +82,11 @@ select option {
 }
 
 .container {
-  max-width: 45rem;
+  max-width: 40rem;
   margin: 0 auto;
 }
 
 .card {
-  outline-style: solid;
-  outline-width: 1px;
-  padding: 30px;
-  margin-bottom: 15px;
-  background-color: #fff;
-}
-
-.card-2 {
   outline-style: solid;
   outline-width: 1px;
   padding: 30px;
